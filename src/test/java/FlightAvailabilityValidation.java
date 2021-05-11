@@ -2,7 +2,12 @@ package in.airlineapp;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+
 import org.junit.Test;
+
+import in.poorni.airlineapp.Flight;
+import in.poorni.airlineapp.flightDetails;
 
 public class FlightAvailabilityValidation {
 
@@ -42,6 +47,15 @@ public class FlightAvailabilityValidation {
 	@Test
 	public void displayFlightName() {
 		FlightAvailability.displayFlightName();
+
+	}
+	@Test
+	public void displayFlightName2() {
+		FlightAvailability.displayFlightName();
+
+	}public void testDispaly() {
+		ArrayList<Flight> typesOfFlight=FlightAvailability.getNumberOfFlight();
+		assertEquals(5,typesOfFlight.size());
 
 	}
 }

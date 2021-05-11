@@ -13,8 +13,7 @@
 		<div class="container">
 			<label>Username : </label> <input type="text" placeholder="Enter Username" name="username" required><br>
 			<label>Password : </label> <input type="password" placeholder="Enter Password" name="password" required><br>
-			<button type="submit">Login</button><br>
-			<a href = "flightDetails.jsp">click me
+			<a href = "flightDetails.jsp">Login
 			</a>
 			</div>
 	</form>
