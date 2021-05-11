@@ -1,6 +1,5 @@
 package in.poorni.airlineapp;
 import java.util.ArrayList;
-import java.util.List;
 
 public class flightDetails {
 	private static ArrayList<Flight> ListOfFlightDetailsList = new ArrayList<Flight>();

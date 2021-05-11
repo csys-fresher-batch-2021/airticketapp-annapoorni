@@ -53,9 +53,5 @@ public class FlightAvailabilityValidation {
 	public void displayFlightName2() {
 		FlightAvailability.displayFlightName();
 
-	}public void testDispaly() {
-		ArrayList<Flight> typesOfFlight=FlightAvailability.getNumberOfFlight();
-		assertEquals(5,typesOfFlight.size());
-
 	}
-}
+	}
