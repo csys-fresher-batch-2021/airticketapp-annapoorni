@@ -8,7 +8,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
@@ -20,8 +20,8 @@
 		<table class="table table-bordered">
 			<thead>
 				<tr>
-					<th>S.no</th>
-					<th>Flight Names</th>
+					<th id="sno">S.no</th>
+					<th id="flight">Flight Names</th>
 				</tr>
 			</thead>
 			<tbody>
