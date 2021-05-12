@@ -19,12 +19,6 @@ public class FlightAvailability {
 
 	}
 
-	public static void flightNameTest() {
-		for (String flight : flightName) {
-
-		}
-	}
-
 	public static boolean searchFlightName(String name) {
 		boolean validFlightName = false;
 		if (flightName.contains(name)) {

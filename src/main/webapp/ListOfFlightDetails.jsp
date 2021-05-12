@@ -1,8 +1,7 @@
 
-<%@page import="in.poorni.airlineapp.flightDetails"%>
+<%@page import="in.poorni.airlineapp.FlightDetails"%>
 <%@page import="java.awt.DisplayMode"%>
 <%@page import="in.poorni.airlineapp.Flight"%>
-<%@page import="in.poorni.airlineapp.Source"%>
 
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -26,7 +25,8 @@
 			</thead>
 			<tbody>
 <%
-ArrayList<Flight> typesOfFlight=flightDetails.getNumberOfFlight();
+ArrayList<Flight> typesOfFlight=FlightDetails.getNumberOfFlight();
+
 
 
 int i=0;

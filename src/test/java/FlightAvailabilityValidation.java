@@ -1,4 +1,4 @@
-package in.airlineapp;
+
 
 import static org.junit.Assert.*;
 
@@ -6,16 +6,11 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
+import in.airlineapp.FlightAvailability;
 import in.poorni.airlineapp.Flight;
-import in.poorni.airlineapp.flightDetails;
+import in.poorni.airlineapp.FlightDetails;
 
 public class FlightAvailabilityValidation {
-
-	@Test
-	public void flightNameValidation() {
-		FlightAvailability.flightNameTest();
-
-	}
 
 	/*
 	 * To validate whether the flightname is given correctly.
