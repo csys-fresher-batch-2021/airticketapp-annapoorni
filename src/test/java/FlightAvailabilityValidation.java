@@ -21,20 +21,6 @@ public class FlightAvailabilityValidation {
 		assertTrue(valid);
 
 	}
-
-	@Test
-	public void flightNameValidation2() {
-		boolean valid = FlightAvailability.searchFlightName("SpiceJet");
-		assertTrue(valid);
-
-	}
-
-	@Test
-	public void flightNameValidation3() {
-		boolean valid = FlightAvailability.searchFlightName("Alliance Air");
-		assertFalse(valid);
-
-	}
 	/*
 	 * Displaying available flight details.
 	 */
@@ -44,9 +30,4 @@ public class FlightAvailabilityValidation {
 		FlightAvailability.displayFlightName();
 
 	}
-	@Test
-	public void displayFlightName2() {
-		FlightAvailability.displayFlightName();
-
-	}
-	}
+		}
