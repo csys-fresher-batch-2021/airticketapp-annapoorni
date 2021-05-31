@@ -1,0 +1,28 @@
+package in.poorni.Model;
+
+public class AddFlightModel {
+		private String addFlight;
+		public String getAdddFlightTime() {
+			return adddFlightTime;
+		}
+		public void setAdddFlightTime(String adddFlightTime) {
+			this.adddFlightTime = adddFlightTime;
+		}
+		private String adddFlightTime;
+		public AddFlightModel(String addFlight,String adddFlightTime) {
+			super();
+			this.addFlight = addFlight;
+			this.adddFlightTime=adddFlightTime;
+		}
+		public String getFlight() {
+			return addFlight;
+		}
+		public void setFlight(String addFlight) {
+			this.addFlight = addFlight;
+		}
+		@Override
+		public String toString() {
+			return "AddFlightModel [addFlight=" + addFlight + ", adddFlightTime=" + adddFlightTime + "]";
+		}
+		
+	}
