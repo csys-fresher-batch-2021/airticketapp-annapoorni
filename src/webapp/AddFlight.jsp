@@ -1,4 +1,4 @@
-sk5<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +14,7 @@ sk5<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	<a href="AddAdmin.jsp">ADD ADMIN</a>
 	<br>
 	<br>
-		<h3>Add Loans</h3>
+		<h3>Add NEw FlightName</h3>
 		
 		<form action="AddFlightServlet" method="post">
 		<label for="flightName">Flight Name</label>

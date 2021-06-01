@@ -27,7 +27,7 @@ public class AddFlightServlet extends HttpServlet {
 			throws ServletException, IOException {
 		boolean isValid=false;
 		String addFlight = request.getParameter("flightName");
-		AddFlightModel newFlight = new AddFlightModel(addFlight);
+	    AddFlightModel newFlight = new AddFlightModel(addFlight, addFlight);
 
 		try {
 			isValid = AddFlightService.addFlight(newFlight);

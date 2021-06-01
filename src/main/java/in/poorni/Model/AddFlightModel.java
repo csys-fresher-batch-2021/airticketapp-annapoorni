@@ -1,7 +1,7 @@
 package in.poorni.Model;
 
 public class AddFlightModel {
-		private String addFlight;
+		public String addFlight;
 		public String getAdddFlightTime() {
 			return adddFlightTime;
 		}
@@ -9,10 +9,15 @@ public class AddFlightModel {
 			this.adddFlightTime = adddFlightTime;
 		}
 		private String adddFlightTime;
-		public AddFlightModel(String addFlight,String adddFlightTime) {
+		public AddFlightModel(String addFlight, String adddFlightTime) {
 			super();
 			this.addFlight = addFlight;
 			this.adddFlightTime=adddFlightTime;
+		}
+		public String AddFlightModel(String addFlight, String adddFlightTime) {
+			// TODO Auto-generated constructor stub
+			return addFlight;
+			
 		}
 		public String getFlight() {
 			return addFlight;
