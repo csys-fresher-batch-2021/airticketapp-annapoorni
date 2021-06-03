@@ -17,7 +17,7 @@
 		}
 	%>
 	<h3>Login</h3>
-	<form action="AdminLoginAction" method="post">
+	<form action="AddFlight.jsp" method="post">
 	
 		<label for="mobileNumber"><strong>Mobile Number</strong></label><br>
 		<input type="tel" name="mobileNumber" placeholder="Enter your mobile number" autofocus required><br>

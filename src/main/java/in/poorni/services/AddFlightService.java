@@ -7,12 +7,20 @@ import in.poorni.dao.DisplayDao;
 
 public class AddFlightService {
 			
-		public static boolean addFlight(AddFlightModel loans) throws ClassNotFoundException, SQLException {
-			DisplayDao.addFlight(loans);
+		public static boolean addFlight(AddFlightModel flight) throws ClassNotFoundException, SQLException {
+			DisplayDao.addFlight(flight);
 			return true;
 			
 			
 		}
+		public static boolean adddFlightTime(AddFlightModel time) throws ClassNotFoundException, SQLException {
+			DisplayDao.addFlight(time);
+			return true;
+			
+			
+		}
+
+
 
 	
 		

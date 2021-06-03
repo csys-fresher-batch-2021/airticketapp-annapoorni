@@ -27,10 +27,12 @@ public class AddFlightServlet extends HttpServlet {
 			throws ServletException, IOException {
 		boolean isValid=false;
 		String addFlight = request.getParameter("flightName");
+		String adddFlightTime = request.getParameter("flightTime");
 	    AddFlightModel newFlight = new AddFlightModel(addFlight, addFlight);
+	    AddFlightModel newTime=new AddFlightModel(adddFlightTime,adddFlightTime);
 
 		try {
-			isValid = AddFlightService.addFlight(newFlight);
+			isValid = (AddFlightService.addFlight(newFlight) && AddFlightService.adddFlightTime(newTime));
 			isValid=true;
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block

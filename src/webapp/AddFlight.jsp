@@ -21,7 +21,12 @@
 		<input type="text" name="flightName" placeholder="Enter flight Name" required autofocus />
 		<br>
 		<br/>
-		<button type="submit" class="btn btn-primary">ADD</button>
+		<!-- - <button type="submit" class="btn btn-primary">ADD FlightName</button>-->
+		<label for="flightTime">Flight Time</label>
+		<input type="text" name="flightTime" placeholder="Enter flight Timing" required autofocus />
+		<br>
+		<br/>
+		<button type="submit" class="btn btn-primary">ADD New Flight details</button>
 		</form>
 		<!-- -- <br>
 		<h3>Delete Flight</h3>
