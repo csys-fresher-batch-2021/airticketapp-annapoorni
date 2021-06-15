@@ -1,42 +1,44 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Register</title>
+
 </head>
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
 	<main class="container-fluid">
-		<form action="RegisterServlet" method="get">
-			<h2>Register page</h2>
-			<label for="name">Enter username</label> <input type="text"
-				name="username" required> <br> <br> <label
-				for="password">Enter password</label> <input type="password"
-				name="password" required> <br> <br> <label
-				for="email">Enter your Email</label> <input type="text" name="email"
-				required> <br> <br> <label for="mobileno">Enter
-				moblileNo</label> <input type="number" name="mobileno" required> <br>
-			<br> <label for="age">Enter age</label> <input type="number"
-				name="age" required> <br> <br> <label
-				for="adhaarNo">Enter AdhaarNo</label> <input type="number"
-				name="adhaarNo" required> <br> <br> <label
-				for="address">Enter Address</label> <input type="text"
-				name="address" required> <br> <br> <label
-				for="pincode">Enter Pincode</label> <input type="number"
-				name="pincode" required><br> <br>
-			<%
-			String errorMessage = request.getParameter("errorMessage");
-			if (errorMessage != null) {
-				out.println("<font color='green'>" + errorMessage + "</font>");
-			}
-			%>
-			<br> <br>
-			<button type="submit" class="btn btn-primary">Submit</button>
-			<br> <br> <a href="Login.jsp">Login</a>
-
+		<form action="AddUserServlet" method="get">
+			<h1>New user Registration</h1>
+			<br />
+					<label for="username">Username:</label> <input type="text"
+						name="username" pattern="[A-Za-z\s]{3,20}"
+						placeholder="Enter User name" required autofocus /> <br /> 
+						<label for="age"> Age: </label> <input type="number" id="age"
+						name="age" placeholder="Enter your age" required autofocus>
+					<br> <label for="password">Password:</label> <input
+						type="password" name="password" placeholder="Enter new password"
+						required autofocus /> <br />
+						<label for="phoneNumber">Phone number:</label> <input type="number"
+						id="phoneNumber" name="phoneNumber" pattern="[789][0-9]{9}">
+					<br /> <label for="email">Email:</label> <input type="email"
+						id="email" name="email" placeholder="Enter email address" required
+						autofocus /> <br /> <br /> <label for="gender">Gender:</label>
+					<br /> <input type="radio" name="gender" value="male">
+					Male <input type="radio" name="gender" value="female">
+					Female <input type="radio" name="gender" value="other">
+					Other<br />
+					<label for="address">Address:</label> <input type="text"
+						name="address"
+						placeholder="Enter address" required autofocus /> <br />
+				
+			<div style="text-align: center">
+				<button type="Submit">Sign Up</button>
+			</div>
 		</form>
 	</main>
+	
 </body>
 </html>

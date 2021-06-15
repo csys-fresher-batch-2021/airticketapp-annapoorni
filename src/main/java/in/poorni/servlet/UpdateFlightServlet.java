@@ -2,6 +2,7 @@ package in.poorni.servlet;
 
 import java.io.IOException;
 import java.time.LocalTime;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,11 +13,12 @@ import in.poorni.Model.Flight;
 import in.poorni.services.FlightService;
 
 /**
- * Servlet implementation class AddDoctorServlet
+ * Servlet implementation class UpdateFlightServlet
  */
-@WebServlet("/AddFlightServlet")
-public class AddFlightServlet extends HttpServlet {
+@WebServlet("/UpdateFlightServlet")
+public class UpdateFlightServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+       
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -32,11 +34,11 @@ public class AddFlightServlet extends HttpServlet {
 			int businessClass = Integer.parseInt(request.getParameter("businessClass"));
 			Flight flight = new Flight(flightId,airlines, departureTime,departingFrom,departingTo,firstClass,economyClass,businessClass);
 			FlightService flightService = new FlightService();
-			flightService.addFlight(flight);
+			flightService.updateFlight(flight);
 			response.sendRedirect("ListOfFlightDetails.jsp");
 		} catch (Exception e) {
 			e.printStackTrace();
-			response.sendRedirect("AddFlight.jsp?errorMessage=" + e.getMessage());
+			response.sendRedirect("UpdateFlight.jsp?errorMessage=" + e.getMessage());
 		}
 	}
 }

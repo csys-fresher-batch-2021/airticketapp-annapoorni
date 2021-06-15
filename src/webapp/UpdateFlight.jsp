@@ -12,11 +12,11 @@
 	
 	<jsp:include page="header.jsp"></jsp:include>
 	<main class="main">
-		<form action="AddFlightServlet" method = "get">
-			<h1>Add Flight Details</h1>
+		<form action="UpdateFlightServlet" method = "get">
+			<h1>Update Flight Details</h1>
 			<br /> <label for="flightId">Flight Id:</label> <input type="text"
 				name="flightId" 
-				placeholder="@Example : air01" required autofocus /> <br /> <br /> <label
+				value="<%=request.getParameter("flightId") %>" read only/> <br /> <br /> <label
 				for="airlines">Airlines :
 				</label> <input type="text"
 				name="airlines" pattern="[A-Za-z\s]{3,20}"
@@ -40,7 +40,7 @@
 				placeholder="Enter business class price" required autofocus /> <br /> <br />
 			<br />
 				<div style="text-align: center">
-				<button>Submit</button>
+				<button>Update</button>
 			</div>
 		</form>
 	</main>

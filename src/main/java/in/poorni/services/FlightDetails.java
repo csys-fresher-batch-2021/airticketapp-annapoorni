@@ -2,6 +2,7 @@ package in.poorni.services;
 import java.util.ArrayList;
 
 import in.poorni.Model.AddFlightModel;
+import in.poorni.dao.DisplayDao;
 
 
 public class FlightDetails {
@@ -39,6 +40,18 @@ public class FlightDetails {
 	}
 	private FlightDetails() {
 		
+	}
+	public static boolean addUpdateFlight(AddFlightModel newFlight) {
+		boolean flag = false;
+		try {
+			
+		DisplayDao.addFlight(newFlight);
+			flag = true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			 new Exception("Unable to add details");
+		}
+		return flag;
 	}
 	
 

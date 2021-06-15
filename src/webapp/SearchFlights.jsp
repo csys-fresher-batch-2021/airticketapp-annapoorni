@@ -10,23 +10,33 @@
 <title>List of Flight</title>
 </head>
 <body>
-<%
-String loggedInAsAdmin = (String) session.getAttribute("LOGGED_IN_ADMIN");
-String loggedInAsUser = (String) session.getAttribute("LOGGED_IN_USER");
-String role = (String) session.getAttribute("ROLE");
-%>
 
 	<jsp:include page="header.jsp"></jsp:include>
 	<main class="main">
 		<h1>List of Flight</h1>
-		<%
-			if (loggedInAsAdmin != null && role != null) {
-			%>
-		<a href="AddFlight.jsp" class="btn btn-primary">Add Flights</a><br />
-		<br />
-		<% } %>
+		<div class="row">
+			<div class="col-md-6">
+				<a href="AddFlight.jsp" class="btn btn-primary">Add New Flights</a><br />
+			</div>
+			<div class="col-md-6 text-right ">
+				<div class="row">
+					<div class="col-md-3">
+						<label for="search"><h3
+								style="padding-left: 45px; padding-top: 6px;">Search:</h3></label>
+					</div>
+					<div class="col-md-3">
+						<form action="SearchFlightServlet" method="get">
+							<input type="text" class="form-control" name="search"
+								placeholder="Search Flights" />
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
 
-		<p>Note : Flight availability details</p>
+		
+
+		<p>Note : search flight details</p>
 		<table class="table table-bordered">
 			<caption>List of Available Flights</caption>
 			<thead>
@@ -40,13 +50,7 @@ String role = (String) session.getAttribute("ROLE");
 					<th scope="col">First Class</th>
 					<th scope="col">Economy Class</th>
 					<th scope="col">Business Class</th>
-				<%
-			if (loggedInAsAdmin != null && role != null) {
-			%>
-					<th scope= "col"> Edit </th>
-					<th scope="col"> Delete</th>
-				<%}
-				%>
+
 				</tr>
 			</thead>
 			<tbody>
@@ -67,13 +71,8 @@ String role = (String) session.getAttribute("ROLE");
 					<td><%=flight.getFirstClass()%></td>
 					<td><%=flight.getEconomyClass()%></td>
 					<td><%=flight.getBusinessClass()%></td>
-				<%
-			if (loggedInAsAdmin != null && role != null) {
-			%>
-					<td><a href="EditFlightServlet?flightId=<%=flight.getFlightId() %>" class="btn btn-primary">Edit</a></td>
-					<td><a href="DeleteFlightServlet?flightId=<%=flight.getFlightId() %>" class="btn btn-primary">Delete</a></td>
+				
 				</tr>
-				<% } %>
 				<%
 				}
 				%>

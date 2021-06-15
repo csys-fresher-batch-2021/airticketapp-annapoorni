@@ -2,7 +2,7 @@ package in.poorni.Model;
 
 public class AddFlightModel {
 		public String addFlight;
-		public String getAdddFlightTime() {
+		public String getAddaFlightTime() {
 			return adddFlightTime;
 		}
 		public void setAdddFlightTime(String adddFlightTime) {

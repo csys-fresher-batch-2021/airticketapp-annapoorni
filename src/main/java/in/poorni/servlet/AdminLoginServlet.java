@@ -1,5 +1,4 @@
 package in.poorni.servlet;
-
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,13 +7,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import in.poorni.services.UserService;
-
+import in.poorni.services.AdminLogin;
 /**
- * Servlet implementation class LoginServlet
+ * Servlet implementation class AdminLoginServlet
  */
-@WebServlet("/LoginServlet")
-public class LoginServlet extends HttpServlet {
+@WebServlet("/AdminLoginServlet")
+public class AdminLoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
@@ -25,16 +23,14 @@ public class LoginServlet extends HttpServlet {
 			throws ServletException, IOException {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-		HttpSession session = request.getSession();
-		session.setAttribute("LOGGED_IN_USER", username);
-		UserService userService= new UserService(); 
-		boolean valid = userService.checkUser(username, password);
-		if (valid) {
+		boolean isValid = AdminLogin.checkAdminLogin(username, password);
+		if (isValid) {
+			HttpSession session = request.getSession();
+			session.setAttribute("LOGGED_IN_ADMIN", username);
+			session.setAttribute("ROLE", "ADMIN");
 			response.sendRedirect("Home.jsp");
 		} else {
-			String message = "Invalid credentials";
-			response.sendRedirect("Login.jsp?errormessage=" + message);
+			response.sendRedirect("AdminLogin.jsp?errorMessage=Invalid Login Credentials");
 		}
 	}
 }
-

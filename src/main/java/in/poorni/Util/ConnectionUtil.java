@@ -4,58 +4,58 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
+
+import in.poorni.Exception.DBException;
 public class ConnectionUtil {
 	private ConnectionUtil() {
+		// default Constructor
 	}
-
-	public static Connection getConnection() throws ClassNotFoundException, SQLException {
-		String driverClass = "org.postgresql.Driver";
-		String url = "jdbc:postgresql://localhost/airticketapp";
-		String flights = "postgres";
-		String time = "Poornima_5";
-		Class.forName(driverClass);
-		Connection connection = DriverManager.getConnection(url, flights, time);
-		System.out.println("Connection Created");
+	private static String driverClass = "org.postgresql.Driver";
+	private static String url = "jdbc:postgresql://localhost/airticketapp";
+	private static String username = "postgres";
+	private static String password = "Poornima_5";
+	
+	
+	public static Connection getConnection() {
+		Connection connection = null;
+		try {
+			// Step 1: Load the database driver into memory ( ClassNotFoundException )
+			Class.forName(driverClass);
+			// Step 2: Get the Database Connection (SQLException)
+			connection = DriverManager.getConnection(url, username, password);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			throw new DBException("Unable to get the database connection");
+		}
 		return connection;
 	}
-	public static void close(Statement st, Connection con) {
+	public static void close(Connection connection, PreparedStatement pst, ResultSet rs) {
 		try {
-			if (con != null && st != null) {
-				con.close();
-				st.close();
-				System.out.println("Connection Released");
+			if (rs != null) {
+				rs.close();
+			}
+			if (pst != null) {
+				pst.close();
+			}
+			if (connection != null) {
+				connection.close();
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			throw new DBException("There no connection to close");
 		}
 	}
-	public static void close(ResultSet rs, PreparedStatement pst, Connection con) {
-		if(con!=null) {
+		public static void close(Connection connection, PreparedStatement pst) {
 			try {
-				con.close();
+				if (pst != null) {
+					pst.close();
+				}
+				if (connection != null) {
+					connection.close();
+				}
 			} catch (SQLException e) {
-
-				e.printStackTrace();
+				throw new DBException("There no connection to close");
 			}
-		}
-		if(pst!=null) {
-			try {
-				pst.close();
-			} catch (SQLException e) {
-
-				e.printStackTrace();
-			}
-		}
-		if(rs!=null) {
-			try {
-				rs.close();
-			} catch (SQLException e) {
-
-				e.printStackTrace();
-			}
-		}
-
-
 	}
 }
+
+

@@ -20,7 +20,7 @@ public class DisplayDao {
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		} finally {
-			ConnectionUtil.close(pst, connection);
+			ConnectionUtil.close(connection, pst);
 		}
 	}
 	public static void adddFlightTime(AddFlightModel adddFlightTime) {
@@ -30,12 +30,12 @@ public class DisplayDao {
 			connection = ConnectionUtil.getConnection();
 			String sql = "insert into flight_details1(time) values(?)";
 			pst = connection.prepareStatement(sql);
-			pst.setString(1, adddFlightTime.getAdddFlightTime());
+			pst.setString(1, adddFlightTime.getAddaFlightTime());
 			pst.executeUpdate();
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		} finally {
-			ConnectionUtil.close(pst, connection);
+			ConnectionUtil.close(connection, pst);
 		}
 	}
 
