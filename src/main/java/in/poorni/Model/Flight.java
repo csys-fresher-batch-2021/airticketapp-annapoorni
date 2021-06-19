@@ -72,13 +72,13 @@ public class Flight {
 				+ ", economyClass=" + economyClass + ", businessClass=" + businessClass + "]";
 	}
 	
-	public String flightId;
-	public String airlines;
-	public LocalTime  departureTime;
-	public String departingFrom;
-	public String  departingTo;
-	public int firstClass;
-	public int economyClass;
-	public int businessClass;
+	private String flightId;
+	private String airlines;
+	private LocalTime  departureTime;
+	private String departingFrom;
+	private String  departingTo;
+	private int firstClass;
+	private int economyClass;
+	private int businessClass;
 	
 }

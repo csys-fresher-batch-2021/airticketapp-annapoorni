@@ -26,11 +26,13 @@ public class FlightService {
 		return isAdded;
 	}
 	
-	public Flight searchFlight(String searchFlight) {
-		return flightDao.search(searchFlight);
-
-		
+	public List<Flight> searchFlight(String sourceName, String destinationName) {
+		String sourcePlace = sourceName;
+		String destinationPlace = destinationName;
+		FlightDao flightDao = new FlightDao();
+		return flightDao.searchBySourceAndDestinationName(sourcePlace, destinationPlace);
 	}
+	
 	public boolean updateFlight(Flight flight) {
 		boolean isUpdated = false;
 		if (FlightValidation.isValidFlight(flight)) {
@@ -47,5 +49,6 @@ public class FlightService {
 		}
 		return isDelete;
 	}
+	
 
 }

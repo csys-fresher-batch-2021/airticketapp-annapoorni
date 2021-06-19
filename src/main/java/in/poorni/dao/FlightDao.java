@@ -72,16 +72,15 @@ public class FlightDao {
 			pst.setInt(8,flight.getBusinessClass());
 
 			pst.executeUpdate();
-			System.out.println(pst);
 		} catch (SQLException e) {
 			throw new DBException("Flight can't be added");
 		} finally {
 			ConnectionUtil.close(connection, pst);
 		}
 	}
-	public Flight search(String searchFlight) {
+	public Flight searchDepartingFrom(String searchFlight) {
 		Flight flight = null;
-		String sql= "select * from  flightList where UPPER(airlines) like '%"+searchFlight +"%'";
+		String sql= "select * from  flightList where UPPER(departingFrom) like '%"+searchFlight +"%'";
 
 		try {
 			// Step 1: Get the connection
@@ -145,6 +144,76 @@ public class FlightDao {
 			ConnectionUtil.close(connection, pst, rs);
 		}
 	}
+	public Flight getRecordById(String flightId) {
+		Flight flight = null;
+		String sql = "select * from flightList where flightId = ?";
+		try {
+			connection = ConnectionUtil.getConnection();
+			pst = connection.prepareStatement(sql);
+			pst.setString(1, flightId);
+			rs = pst.executeQuery();
+			while (rs.next()) {
+				String id = rs.getString("flightId");
+				String airlines = rs.getString("airlines");
+				LocalTime departureTime = rs.getTime("departureTime").toLocalTime();
+				String departingFrom = rs.getString("departingFrom");
+				String departingTo = rs.getString("departingTo");
+				int firstClass= rs.getInt("firstClass");
+				int economyClass = rs.getInt("economyClass");
+				int businessClass = rs.getInt("businessClass");
+
+				// Store the data in model
+				flight = new Flight(id, airlines, departureTime,departingFrom,departingTo,firstClass,economyClass,businessClass);
+			}
+		} catch (SQLException e) {
+			throw new DBException("Flight data can't be find");
+		} finally {
+			ConnectionUtil.close(connection, pst, rs);
+		}
+		return flight;
 	}
+	
+	public List<Flight> searchBySourceAndDestinationName(String sourceName, String destinationName){
+		List<Flight> searchList = new ArrayList<>();
+		try {
+			// Step 1: Get the connection
+			connection = ConnectionUtil.getConnection();
+			// Step 2: Query
+			String sql = "select * from flightList where departingfrom = ? AND departingto = ?";
+			pst = connection.prepareStatement(sql);
+			pst.setString(1, sourceName);
+			pst.setString(2, destinationName);		
+			// Step 3: execute query
+			rs = pst.executeQuery();
+			System.out.println(pst);
+			while (rs.next()) {
+				String flightId = rs.getString("flightId");
+				String airlines = rs.getString("airlines");
+				LocalTime departureTime = rs.getTime("departureTime").toLocalTime();
+				String departingFrom = rs.getString("departingFrom");
+				String departingTo = rs.getString("departingTo");
+				int firstClass = rs.getInt("firstClass");
+				int economyClass = rs.getInt("economyClass");
+				int businessClass = rs.getInt("businessClass");
+
+				// Store the data in model
+				Flight flight = new Flight(flightId, airlines, departureTime, departingFrom,departingTo,firstClass,economyClass,businessClass);
+				// Store all doctor in list
+				searchList.add(flight);
+				
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			ConnectionUtil.close(connection, pst, rs);
+		}
+		return searchList;
+		
+		
+	}
+	
+}
+	
+
 
 

@@ -8,16 +8,16 @@
 <link rel="stylesheet" href="css/style.css">
 <style>
 body {
-	background-image: url("img/bg.jpg");
+	background-image: url("image/bg1.jpg");
 	background-repeat: repeat;
 	background-size: cover;
 }
 form {
-	border: 5px solid #000 !important;
+	
 	padding: 10px ;
-	margin-left: 25% !important;
-	margin-top: 6% !important;
-	width: 400px;
+	margin-left: 60% !important;
+	margin-top: 5% !important;
+	width: 300px;
 	background-color: #FFFFFF !important;
 	opacity: 0.9;
 }
@@ -33,10 +33,20 @@ button {
 	background-color: white;
 	color: black;
 	border: 2px solid #008CBA;
-	width:60%;
+	width:30%;
 }
 a{
 	cursor : pointer;
+}
+
+#Login{
+	color: black;
+	
+	text-align: center;
+	 
+}
+input{
+	width: 100%;
 }
 </style>
 </head>
@@ -47,13 +57,15 @@ a{
 	<jsp:include page="LoginHeader.jsp"></jsp:include>
 	<main class="main">
 		<form action="LoginServlet" method="post">
+		<div id="Login">
 			<h1>User Login</h1>
-			<br> <label for="username"> Username: </label> <input
+		</div>
+			<br>  <input
 				type="text" id="username" name="username"
-				placeholder="Enter the user name" required autofocus> <br>
-			 <label for="password"> Password: </label> <input
+				placeholder="Enter the user name" required autofocus> <br><br />
+				 <input
 				type="password" id="password" name="password" required autofocus>
-			 <br>
+			 <br><br />
 			 
 			 <div style="text-align: center">
 				<button type="Submit">Submit</button>

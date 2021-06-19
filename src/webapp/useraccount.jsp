@@ -3,9 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<%
-	ResultSet resultSet = null;
-%>
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -107,37 +105,22 @@
         Click <a href="user.jsp"> here</a> to go back to your account page <br><br>
         Click <a href="index.jsp"> here</a> to go to the MAKMLINER Airlines homepage
     </div>
-<%
-		try {
-			String driverClass = "org.postgresql.Driver";
-			String url = "jdbc:postgresql://localhost/airticketapp";
-			Statement statement = ConnectionUtil.createStatement();
-			resultSet = statement.executeQuery("SELECT Customer.*,Account.password FROM Customer INNER JOIN AirlineDB.Account ON Customer.idCustomer = Account.customer_idCustomer WHERE Customer.idCustomer = 1");
-		}
-		catch (Exception e) { // TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 
-
-		while(resultSet.next()){
-		%>
 		<div class="my-container">
 		    <img height= 100% width=100% src="http://forwallpapers.com/wp-content/uploads/2014/01/Colorfull-Niagara-Falls-Beautiful-Night-Wallpaper-Desktop-1024x543.png">
     		<div id="section">
     		    <b1><center><font size= "6" color= "black" family="arial"> Edit Your Profile</font></center></b1>
         		<div id="box"> <b1>
-            		<input type=hidden id="cusid" name="CustId" value="<%=resultSet.getString(1)%>">
-            		First Name: <br><input type="text" class="textbox" id = "FirName" name = "FirName" value="<%=resultSet.getString(2)%>"><br>
-            		Last Name:<br><input type="text" class="textbox" id = "LasName" name ="LasName" value = "<%=resultSet.getString(3)%>"><br>
-            		Date of Birth:<br><input type="date" class="textbox" name ="dob" value = "<%= resultSet.getDate(4) %>"><br>
-            		Country:<br><input type="text" id ="Coun" class="textbox" name ="Coun" value ="<%=resultSet.getString(5)%>"><br>
-            		Street Address:<br><input type="text" class="textbox" id ="StreAddr" name ="StreAddr" value ="<%=resultSet.getString(6)%>"><br>
-            		City:<br><input type="text" id ="City" class="textbox" name ="City" value ="<%=resultSet.getString(7)%>"><br>
-            		State:<br><input type="text" id ="Sta" class="textbox" name ="Sta" value ="<%=resultSet.getString(8)%>"><br>
-            		Zip code:<br><input type="text" id ="Zip" class="textbox" name ="Zip" value ="<%=resultSet.getString(9)%>"><br>
-            		Email:<br><input type ="email" id = "Email" class="textbox" name="Email" value ="<%=resultSet.getString(10)%>"><br>
-        		<% }
-        		%>
+            		First Name: <br><input type="text" class="textbox" id = "FirName" name = "FirName" ><br>
+            		Last Name:<br><input type="text" class="textbox" id = "LasName" name ="LasName" ><br>
+            		Date of Birth:<br><input type="date" class="textbox" name ="dob"><br>
+            		Country:<br><input type="text" id ="Coun" class="textbox" name ="Coun" ><br>
+            		Street Address:<br><input type="text" class="textbox" id ="StreAddr" name ="StreAddr"><br>
+            		City:<br><input type="text" id ="City" class="textbox" name ="City"><br>
+            		State:<br><input type="text" id ="Sta" class="textbox" name ="Sta" ><br>
+            		Zip code:<br><input type="text" id ="Zip" class="textbox" name ="Zip"><br>
+            		Email:<br><input type ="email" id = "Email" class="textbox" name="Email"><br>
+        		
         		<br><input type= "submit" class="box" value="Save"></b1>
         	
         		</div>

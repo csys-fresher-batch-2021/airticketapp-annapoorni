@@ -19,7 +19,7 @@ String role = (String) session.getAttribute("ROLE");
 		<div class="collapse navbar-collapse" id="collapsibleNavId">
 			<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 				<li class="nav-item active"><a class="nav-link"
-					href="Login.jsp">Home <span class="sr-only">(current)</span></a></li>
+					href="index.jsp">Home <span class="sr-only">(current)</span></a></li>
 					</ul>
 			<ul class="navbar-nav ml-auto mt-2 mt-lg-0">
 				<%

@@ -7,13 +7,13 @@
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
-<title>List of Flight</title>
+<title>List of Search Flight</title>
 </head>
 <body>
 
 	<jsp:include page="header.jsp"></jsp:include>
 	<main class="main">
-		<h1>List of  Search Flight</h1>
+		<h1>List of Search Flight</h1>
 		
 		
 		<table class="table table-bordered">
@@ -34,7 +34,11 @@
 			</thead>
 			<tbody>
 				<%
-				Flight flight = (Flight)request.getAttribute("flightName");
+				FlightService flightService = new FlightService();
+				String sourceName = (String) request.getAttribute("sourceName");
+				String destinationName = (String) request.getAttribute("destinationName");
+				List<Flight> flightList = flightService.searchFlight(sourceName, destinationName);
+				for(Flight flight : flightList){
 				int i = 1;
 				if(flight!=null){
 				%>
@@ -57,7 +61,7 @@
 				%>
 				<h2> No records found</h2>
 				<%
-				}
+				}}
 				%>
 			</tbody>
 		</table>

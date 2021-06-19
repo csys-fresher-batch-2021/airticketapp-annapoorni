@@ -16,7 +16,7 @@ public class RegisterDao {
 	/**
 	 * This method is used to store user details in db
 	 * 
-	 * @param patient
+	 * @param flight
 	 */
 	public void save(User user) {
 		String sql = "insert into usertable(username,age,phoneNumber,email,pass,gender,address) values ( ?,?,?,?,?,?,? )";

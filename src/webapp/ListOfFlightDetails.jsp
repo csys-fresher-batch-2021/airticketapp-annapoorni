@@ -17,14 +17,20 @@ String role = (String) session.getAttribute("ROLE");
 %>
 
 	<jsp:include page="header.jsp"></jsp:include>
-	<main class="main">
+	<main class="container-fluid">
 		<h1>List of Flight</h1>
 		<%
 			if (loggedInAsAdmin != null && role != null) {
 			%>
-		<a href="AddFlight.jsp" class="btn btn-primary">Add Flights</a><br />
+		<a href="AddFlight.jsp" class="btn btn-primary">Add Flights</a><br/>
 		<br />
 		<% } %>
+		<%
+		if(loggedInAsUser != null){
+		%>
+		<a href="BookTicket.jsp" class="btn btn-primary">Book Now</a><br/>
+		<br/>
+		<%} %>
 
 		<p>Note : Flight availability details</p>
 		<table class="table table-bordered">
@@ -56,6 +62,7 @@ String role = (String) session.getAttribute("ROLE");
 				int i = 0;
 				for (Flight flight : flightInfo) {
 					i++;
+					
 				%>
 				<tr>
 					<td><%=i%></td>
@@ -64,9 +71,9 @@ String role = (String) session.getAttribute("ROLE");
 					<td><%=flight.getDepartureTime()%></td>
 					<td><%=flight.getDepartingFrom()%></td>
 					<td><%=flight.getDepartingTo()%></td>
-					<td><%=flight.getFirstClass()%></td>
-					<td><%=flight.getEconomyClass()%></td>
-					<td><%=flight.getBusinessClass()%></td>
+					<td>&#8377; <%=flight.getFirstClass()%></td>
+					<td>&#8377; <%=flight.getEconomyClass()%></td>
+					<td>&#8377; <%=flight.getBusinessClass()%></td>
 				<%
 			if (loggedInAsAdmin != null && role != null) {
 			%>
@@ -77,6 +84,7 @@ String role = (String) session.getAttribute("ROLE");
 				<%
 				}
 				%>
+						
 			</tbody>
 		</table>
 		<br />

@@ -1,3 +1,4 @@
+<%@page import="java.time.LocalTime"%>
 <%@page import="in.poorni.Model.Flight"%>
 <%@page import="in.poorni.services.FlightService"%>
 <%@page import="java.util.List"%>
@@ -8,38 +9,19 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>List of Flight</title>
-<style>
-
-
-input {
-	width: 20% !important;
-}
-</style>
 </head>
 <body>
+<%
+String loggedInAsAdmin = (String) session.getAttribute("LOGGED_IN_ADMIN");
+String loggedInAsUser = (String) session.getAttribute("LOGGED_IN_USER");
+String role = (String) session.getAttribute("ROLE");
+%>
 
 	<jsp:include page="header.jsp"></jsp:include>
 	<main class="main">
-		<h1>List of Flight</h1>
-		<form action="SearchFlightServlet" method="get">
-			<div class="row">
-				<div class="col-md-12">
+		<h1>List of Available Flights</h1>
 
-					<label for="search"><h5>
-							Source name:
-							</h3></label> <input type="text" name="SourceName"
-						placeholder="Search source name" /> <label for="search"><h5>
-							Destination name:
-							</h3></label> <input type="text" name="DestinationName"
-						placeholder="Search Destination name" />
-						<button>Search</button>
-				</div>
-			</div>
-		</form>
-
-
-
-		<p>Note : search flight details</p>
+		<p>Note : Flight availability details</p>
 		<table class="table table-bordered">
 			<caption>List of Available Flights</caption>
 			<thead>
@@ -50,19 +32,25 @@ input {
 					<th scope="col">Departure Time</th>
 					<th scope="col">Departing From</th>
 					<th scope="col">Departing To</th>
-					<th scope="col">First Class</th>
-					<th scope="col">Economy Class</th>
-					<th scope="col">Business Class</th>
-
+				<%
+			if (loggedInAsUser != null) {
+			%>
+					<th scope= "col">Book Ticket </th>
+				<%}
+				%>
 				</tr>
 			</thead>
 			<tbody>
 				<%
+				LocalTime currentTime = LocalTime.now();
 				FlightService flightService = new FlightService();
 				List<Flight> flightInfo = flightService.getFlights();
+				
 				int i = 0;
 				for (Flight flight : flightInfo) {
 					i++;
+					LocalTime flightTime = flight.getDepartureTime();
+					if(flightTime.isAfter(currentTime)){
 				%>
 				<tr>
 					<td><%=i%></td>
@@ -71,13 +59,14 @@ input {
 					<td><%=flight.getDepartureTime()%></td>
 					<td><%=flight.getDepartingFrom()%></td>
 					<td><%=flight.getDepartingTo()%></td>
-					<td><%=flight.getFirstClass()%></td>
-					<td><%=flight.getEconomyClass()%></td>
-					<td><%=flight.getBusinessClass()%></td>
-
-				</tr>
 				<%
-				}
+			if (loggedInAsUser != null) {
+			%>
+					<td><a href="AddPassenger.jsp?flightId=<%=flight.getFlightId() %>" class="btn btn-primary">BOOK NOW</a></td>
+				</tr>
+				<% } %>
+				<%
+					}}
 				%>
 			</tbody>
 		</table>
