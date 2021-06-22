@@ -1,8 +1,8 @@
-package in.poorni.Validation;
+package in.poorni.validation;
 
 
-import in.poorni.Util.PasswordValidation;
-import in.poorni.Util.StringValidation;
+import in.poorni.util.PasswordValidation;
+import in.poorni.util.StringValidation;
 
 public class LoginValidation {
 	private LoginValidation() {

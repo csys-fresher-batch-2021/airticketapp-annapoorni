@@ -1,4 +1,4 @@
-package in.poorni.Util;
+package in.poorni.util;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;

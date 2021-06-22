@@ -1,8 +1,8 @@
 package in.poorni.services;
 
-import in.poorni.Model.User;
-import in.poorni.Util.StringValidation;
-import in.poorni.Validation.UserValidation;
+import in.poorni.model.User;
+import in.poorni.util.StringValidation;
+import in.poorni.validation.UserValidation;
 import in.poorni.dao.RegisterDao;
 
 public class UserService {

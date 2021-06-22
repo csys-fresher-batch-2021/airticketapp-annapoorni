@@ -9,9 +9,9 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
-import in.poorni.Exception.DBException;
-import in.poorni.Model.Flight;
-import in.poorni.Util.ConnectionUtil;
+import in.poorni.exception.DBException;
+import in.poorni.model.Flight;
+import in.poorni.util.ConnectionUtil;
 
 public class FlightDao {
 	

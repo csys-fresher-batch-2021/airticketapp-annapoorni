@@ -1,4 +1,4 @@
-package in.poorni.Model;
+package in.poorni.model;
 
 public class LoginModel {
 	public String username;

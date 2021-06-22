@@ -6,9 +6,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import in.poorni.Exception.DBException;
-import in.poorni.Model.User;
-import in.poorni.Util.ConnectionUtil;
+import in.poorni.exception.DBException;
+import in.poorni.model.User;
+import in.poorni.util.ConnectionUtil;
 public class RegisterDao {
 	Connection connection = null;
 	PreparedStatement pst = null;

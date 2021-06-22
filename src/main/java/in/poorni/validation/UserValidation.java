@@ -1,13 +1,13 @@
-package in.poorni.Validation;
+package in.poorni.validation;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import in.poorni.Model.User;
-import in.poorni.Util.AgeValidation;
-import in.poorni.Util.EmailValidation;
-import in.poorni.Util.PhoneNumberValidation;
-import in.poorni.Util.StringValidation;
+import in.poorni.model.User;
+import in.poorni.util.AgeValidation;
+import in.poorni.util.EmailValidation;
+import in.poorni.util.PhoneNumberValidation;
+import in.poorni.util.StringValidation;
 public class UserValidation {
 	private UserValidation() {
 		// default constructor

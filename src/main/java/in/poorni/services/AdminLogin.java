@@ -2,7 +2,7 @@ package in.poorni.services;
 
 import java.util.HashMap;
 
-import in.poorni.Validation.LoginValidation;
+import in.poorni.validation.LoginValidation;
 
 public class AdminLogin {
 	private AdminLogin() {

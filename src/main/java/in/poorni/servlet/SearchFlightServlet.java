@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import in.poorni.Model.Flight;
+import in.poorni.model.Flight;
 import in.poorni.dao.FlightDao;
 
 

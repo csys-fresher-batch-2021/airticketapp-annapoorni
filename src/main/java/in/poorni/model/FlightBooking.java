@@ -1,4 +1,4 @@
-package in.poorni.Model;
+package in.poorni.model;
 
 import java.time.LocalDate;
 import java.util.Date;

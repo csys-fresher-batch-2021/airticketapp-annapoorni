@@ -2,9 +2,9 @@ package in.poorni.services;
 
 import java.util.List;
 
-import in.poorni.Model.Flight;
-import in.poorni.Util.StringValidation;
-import in.poorni.Validation.FlightValidation;
+import in.poorni.model.Flight;
+import in.poorni.util.StringValidation;
+import in.poorni.validation.FlightValidation;
 import in.poorni.dao.FlightDao;
 
 public class FlightService {

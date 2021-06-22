@@ -7,9 +7,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import in.poorni.Exception.DBException;
-import in.poorni.Model.Seat;
-import in.poorni.Util.ConnectionUtil;
+import in.poorni.exception.DBException;
+import in.poorni.model.Seat;
+import in.poorni.util.ConnectionUtil;
 
 public class SeatDao {
 

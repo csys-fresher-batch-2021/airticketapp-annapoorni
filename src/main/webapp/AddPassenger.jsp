@@ -1,8 +1,8 @@
 <%@page import="java.util.List"%>
-<%@page import="in.poorni.Model.Seat"%>
+<%@page import="in.poorni.model.Seat"%>
 <%@page import="in.poorni.dao.SeatDao"%>
 <%@page import="java.time.LocalDate"%>
-<%@page import="in.poorni.Model.Flight"%>
+<%@page import="in.poorni.model.Flight"%>
 <%@page import="in.poorni.dao.FlightDao"%>
 <%@page import="in.poorni.services.FlightService"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"

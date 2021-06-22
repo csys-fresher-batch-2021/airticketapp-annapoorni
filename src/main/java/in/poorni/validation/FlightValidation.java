@@ -1,8 +1,8 @@
-package in.poorni.Validation;
+package in.poorni.validation;
 
-import in.poorni.Model.Flight;
-import in.poorni.Util.IntegerValidation;
-import in.poorni.Util.StringValidation;
+import in.poorni.model.Flight;
+import in.poorni.util.IntegerValidation;
+import in.poorni.util.StringValidation;
 
 public class FlightValidation {
 

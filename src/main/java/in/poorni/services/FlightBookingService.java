@@ -4,7 +4,7 @@ package in.poorni.services;
 import java.time.LocalDate;
 import java.util.List;
 
-import in.poorni.Model.FlightBooking;
+import in.poorni.model.FlightBooking;
 import in.poorni.dao.FlightBookingDao;
 
 public class FlightBookingService {

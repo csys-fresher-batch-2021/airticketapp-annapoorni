@@ -1,4 +1,4 @@
-package in.poorni.Validation;
+package in.poorni.validation;
 
 public class UserdetailSetValidation {
 	private UserdetailSetValidation() {

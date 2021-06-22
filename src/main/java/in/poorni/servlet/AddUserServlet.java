@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import in.poorni.Model.User;
+import in.poorni.model.User;
 import in.poorni.services.UserService;
 /**
  * Servlet implementation class AddUserServlet

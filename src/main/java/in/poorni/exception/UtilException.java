@@ -1,4 +1,4 @@
-package in.poorni.Exception;
+package in.poorni.exception;
 
 public class UtilException extends RuntimeException {
 	private static final long serialVersionUID = 1L;

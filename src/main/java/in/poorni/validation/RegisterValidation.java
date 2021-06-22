@@ -1,4 +1,4 @@
-package in.poorni.Validation;
+package in.poorni.validation;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

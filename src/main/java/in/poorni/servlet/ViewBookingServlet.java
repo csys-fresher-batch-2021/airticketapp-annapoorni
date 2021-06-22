@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import in.poorni.dao.FlightBookingDao;
 import in.poorni.services.FlightBookingService;
-import in.poorni.Model.FlightBooking;
+import in.poorni.model.FlightBooking;
 /**
  * Servlet implementation class ViewServlet
  * @param <FlightBooking>

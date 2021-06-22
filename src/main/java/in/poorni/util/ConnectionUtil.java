@@ -1,11 +1,11 @@
-package in.poorni.Util;
+package in.poorni.util;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import in.poorni.Exception.DBException;
+import in.poorni.exception.DBException;
 public class ConnectionUtil {
 	private ConnectionUtil() {
 		// default Constructor

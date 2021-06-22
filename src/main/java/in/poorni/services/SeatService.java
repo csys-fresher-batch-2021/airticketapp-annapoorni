@@ -2,7 +2,7 @@ package in.poorni.services;
 
 import java.util.List;
 
-import in.poorni.Model.Seat;
+import in.poorni.model.Seat;
 import in.poorni.dao.SeatDao;
 
 public class SeatService {

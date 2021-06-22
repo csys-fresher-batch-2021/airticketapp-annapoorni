@@ -1,7 +1,7 @@
-package in.poorni.Util;
+package in.poorni.util;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import in.poorni.Exception.UtilException;
+import in.poorni.exception.UtilException;
 
 
 public class PasswordValidation {
