@@ -42,7 +42,7 @@ public class FlightDao {
 
 				// Store the data in model
 				Flight flight = new Flight(flightId, airlines, departureTime, departingFrom,departingTo,firstClass,economyClass,businessClass);
-				// Store all doctor in list
+				// Store all flight in list
 				flightList.add(flight);
 			}
 		} catch (SQLException e) {
@@ -54,7 +54,7 @@ public class FlightDao {
 	}
 	
 	public void save(Flight flight) {
-		// TODO Auto-generated method stub
+
 		String sql="insert into flightList (flightId,airlines,departureTime,departingFrom,departingTo,firstClass,economyClass,businessClass) values (?,?,?,?,?,?,?,?)";
 
 		try {
@@ -185,7 +185,6 @@ public class FlightDao {
 			pst.setString(2, destinationName);		
 			// Step 3: execute query
 			rs = pst.executeQuery();
-			System.out.println(pst);
 			while (rs.next()) {
 				String flightId = rs.getString("flightId");
 				String airlines = rs.getString("airlines");
