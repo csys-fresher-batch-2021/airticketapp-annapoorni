@@ -1,3 +1,4 @@
+<%@page import="java.time.LocalTime"%>
 <%@page import="in.poorni.model.Flight"%>
 <%@page import="in.poorni.services.FlightService"%>
 <%@page import="java.util.List"%>
@@ -17,20 +18,8 @@ String role = (String) session.getAttribute("ROLE");
 %>
 
 	<jsp:include page="header.jsp"></jsp:include>
-	<main class="container-fluid">
-		<h1>List of Flight</h1>
-		<%
-			if (loggedInAsAdmin != null && role != null) {
-			%>
-		<a href="AddFlight.jsp" class="btn btn-primary">Add Flights</a><br/>
-		<br />
-		<% } %>
-		<%
-		if(loggedInAsUser != null){
-		%>
-		<a href="BookTicket.jsp" class="btn btn-primary">Book Now</a><br/>
-		<br/>
-		<%} %>
+	<main class="main">
+		<h1>List of Available Flights</h1>
 
 		<p>Note : Flight availability details</p>
 		<table class="table table-bordered">
@@ -43,26 +32,25 @@ String role = (String) session.getAttribute("ROLE");
 					<th scope="col">Departure Time</th>
 					<th scope="col">Departing From</th>
 					<th scope="col">Departing To</th>
-					<th scope="col">First Class</th>
-					<th scope="col">Economy Class</th>
-					<th scope="col">Business Class</th>
 				<%
-			if (loggedInAsAdmin != null && role != null) {
+			if (loggedInAsUser != null) {
 			%>
-					<th scope= "col"> Edit </th>
-					<th scope="col"> Delete</th>
+					<th scope= "col">Book Ticket </th>
 				<%}
 				%>
 				</tr>
 			</thead>
 			<tbody>
 				<%
+				LocalTime currentTime = LocalTime.now();
 				FlightService flightService = new FlightService();
 				List<Flight> flightInfo = flightService.getFlights();
+				
 				int i = 0;
 				for (Flight flight : flightInfo) {
 					i++;
-					
+					LocalTime flightTime = flight.getDepartureTime();
+					if(flightTime.isAfter(currentTime)){
 				%>
 				<tr>
 					<td><%=i%></td>
@@ -71,20 +59,15 @@ String role = (String) session.getAttribute("ROLE");
 					<td><%=flight.getDepartureTime()%></td>
 					<td><%=flight.getDepartingFrom()%></td>
 					<td><%=flight.getDepartingTo()%></td>
-					<td>&#8377; <%=flight.getFirstClass()%></td>
-					<td>&#8377; <%=flight.getEconomyClass()%></td>
-					<td>&#8377; <%=flight.getBusinessClass()%></td>
 				<%
-			if (loggedInAsAdmin != null && role != null) {
+			if (loggedInAsUser != null) {
 			%>
-					<td><a href="EditFlightServlet?flightId=<%=flight.getFlightId() %>" class="btn btn-primary">Edit</a></td>
-					<td><a href="DeleteFlightServlet?flightId=<%=flight.getFlightId() %>" class="btn btn-primary">Delete</a></td>
+					<td><a href="AddPassenger.jsp?flightId=<%=flight.getFlightId() %>" class="btn btn-primary">BOOK NOW</a></td>
 				</tr>
 				<% } %>
 				<%
-				}
+					}}
 				%>
-						
 			</tbody>
 		</table>
 		<br />

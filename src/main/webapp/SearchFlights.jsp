@@ -8,31 +8,38 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>List of Flight</title>
+<style>
+
+
+input {
+	width: 20% !important;
+}
+</style>
 </head>
 <body>
-<%
-String loggedInAsAdmin = (String) session.getAttribute("LOGGED_IN_ADMIN");
-String loggedInAsUser = (String) session.getAttribute("LOGGED_IN_USER");
-String role = (String) session.getAttribute("ROLE");
-%>
 
 	<jsp:include page="header.jsp"></jsp:include>
-	<main class="container-fluid">
+	<main class="main">
 		<h1>List of Flight</h1>
-		<%
-			if (loggedInAsAdmin != null && role != null) {
-			%>
-		<a href="AddFlight.jsp" class="btn btn-primary">Add Flights</a><br/>
-		<br />
-		<% } %>
-		<%
-		if(loggedInAsUser != null){
-		%>
-		<a href="BookTicket.jsp" class="btn btn-primary">Book Now</a><br/>
-		<br/>
-		<%} %>
+		<form action="SearchFlightServlet" method="get">
+			<div class="row">
+				<div class="col-md-12">
 
-		<p>Note : Flight availability details</p>
+					<label for="search"><h5>
+							Source name:
+							</h3></label> <input type="text" name="SourceName"
+						placeholder="Search source name" /> <label for="search"><h5>
+							Destination name:
+							</h3></label> <input type="text" name="DestinationName"
+						placeholder="Search Destination name" />
+						<button>Search</button>
+				</div>
+			</div>
+		</form>
+
+
+
+		<p>Note : search flight details</p>
 		<table class="table table-bordered">
 			<caption>List of Available Flights</caption>
 			<thead>
@@ -46,13 +53,7 @@ String role = (String) session.getAttribute("ROLE");
 					<th scope="col">First Class</th>
 					<th scope="col">Economy Class</th>
 					<th scope="col">Business Class</th>
-				<%
-			if (loggedInAsAdmin != null && role != null) {
-			%>
-					<th scope= "col"> Edit </th>
-					<th scope="col"> Delete</th>
-				<%}
-				%>
+
 				</tr>
 			</thead>
 			<tbody>
@@ -62,7 +63,6 @@ String role = (String) session.getAttribute("ROLE");
 				int i = 0;
 				for (Flight flight : flightInfo) {
 					i++;
-					
 				%>
 				<tr>
 					<td><%=i%></td>
@@ -71,20 +71,14 @@ String role = (String) session.getAttribute("ROLE");
 					<td><%=flight.getDepartureTime()%></td>
 					<td><%=flight.getDepartingFrom()%></td>
 					<td><%=flight.getDepartingTo()%></td>
-					<td>&#8377; <%=flight.getFirstClass()%></td>
-					<td>&#8377; <%=flight.getEconomyClass()%></td>
-					<td>&#8377; <%=flight.getBusinessClass()%></td>
-				<%
-			if (loggedInAsAdmin != null && role != null) {
-			%>
-					<td><a href="EditFlightServlet?flightId=<%=flight.getFlightId() %>" class="btn btn-primary">Edit</a></td>
-					<td><a href="DeleteFlightServlet?flightId=<%=flight.getFlightId() %>" class="btn btn-primary">Delete</a></td>
+					<td><%=flight.getFirstClass()%></td>
+					<td><%=flight.getEconomyClass()%></td>
+					<td><%=flight.getBusinessClass()%></td>
+
 				</tr>
-				<% } %>
 				<%
 				}
 				%>
-						
 			</tbody>
 		</table>
 		<br />
