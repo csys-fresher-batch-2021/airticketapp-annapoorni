@@ -3,6 +3,7 @@
   
 <head>
 
+
     <meta charset="UTF-8">
     <meta name="viewport" content=
         "width=device-width, initial-scale=1.0">
@@ -75,6 +76,7 @@
         and there are no extra charges for air flight reservation. Explore the world . Happy Journey...!!!</p><br />
         <a href="Login.jsp" class="btn btn-primary" style="margin-left:40%">Book Now</a>
     </div>
+
 </body>
   
 </html>

@@ -2,6 +2,7 @@
 <link rel="stylesheet" href="assets/css/fontawesome.min.css">
 <link rel="stylesheet" href="assets/css/style.css">
 <header>
+
 <%
 String loggedInAsAdmin = (String) session.getAttribute("LOGGED_IN_ADMIN");
 String loggedInAsUser = (String) session.getAttribute("LOGGED_IN_USER");
@@ -53,4 +54,5 @@ String role = (String) session.getAttribute("ROLE");
 		</div>
 	</nav>
 </header>
+
 
